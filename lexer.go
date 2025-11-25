@@ -1,4 +1,4 @@
-package lexer
+package parsers
 
 import (
 	"strings"
@@ -403,4 +403,3 @@ func (l *Lexer) peek() byte {
 	}
 	return 0
 }
-
