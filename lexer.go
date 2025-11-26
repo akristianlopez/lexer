@@ -42,8 +42,8 @@ const (
 	TOKEN_RPAREN
 	// TOKEN_LBRACE
 	// TOKEN_RBRACE
-	TOKEN_LBRAKET
-	TOKEN_RBRAKET
+	TOKEN_LBRACKET
+	TOKEN_RBRACKET
 	TOKEN_SEMICOLON
 	TOKEN_COLON
 	TOKEN_COMMA
@@ -78,6 +78,8 @@ const (
 	TOKEN_RECURSIVE
 	TOKEN_BROWSE
 	TOKEN_CASE
+	TOKEN_TRUE
+	TOKEN_FALSE
 )
 
 type Token struct {
@@ -183,12 +185,12 @@ func (l *Lexer) NextToken() Token {
 	case '[':
 		if l.peek() == '=' {
 			l.consume()
-			return l.createToken(TOKEN_LBRAKET, "[")
+			return l.createToken(TOKEN_LBRACKET, "[")
 		}
 	case ']':
 		if l.peek() == '=' {
 			l.consume()
-			return l.createToken(TOKEN_RBRAKET, "]")
+			return l.createToken(TOKEN_RBRACKET, "]")
 		}
 	case '(':
 		return l.createToken(TOKEN_LPAREN, "(")
